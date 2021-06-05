@@ -12,6 +12,18 @@ export const signup = createAsyncThunk(
   }
 );
 
+export const login = createAsyncThunk(
+  "user/login",
+  async ({ payload, clearForm }) => {
+    const user = await authenticate("login", payload);
+
+    if (user.token) {
+      clearForm();
+      return user;
+    }
+  }
+);
+
 const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -20,6 +32,9 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers: {
     [signup.fulfilled]: (state, action) => {
+      state.data = action.payload || {};
+    },
+    [login.fulfilled]: (state, action) => {
       state.data = action.payload || {};
     },
   },

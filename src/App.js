@@ -4,23 +4,22 @@ import { ToastContainer } from "react-toastify";
 import GlobalStyle from "./styles/GlobalStyle";
 import Auth from "./components/Auth";
 import "react-toastify/dist/ReactToastify.css";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "./store";
+import Router from "./Router";
 
 function App() {
-  console.log(process.env.REACT_APP_BE);
+  const { token } = useSelector((state) => state.user.data);
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={darkTheme}>
-        <GlobalStyle />
-        <ToastContainer
-          autoClose={2500}
-          position="top-right"
-          closeButton={false}
-        />
-        <Auth />
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider theme={darkTheme}>
+      <GlobalStyle />
+      <ToastContainer
+        autoClose={2500}
+        position="top-right"
+        closeButton={false}
+      />
+      {token ? <Router /> : <Auth />}
+    </ThemeProvider>
   );
 }
 
