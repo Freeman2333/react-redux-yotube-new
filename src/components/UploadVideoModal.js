@@ -184,7 +184,7 @@ const UploadVideoModal = ({ previewVideo, closeModal, url, thumbnail }) => {
         </div>
         {tab === "PREVIEW" && (
           <div className="tab video-preview">
-            <Player previewUrl={previewVideo} />
+            {/* <Player previewUrl={previewVideo} /> */}
           </div>
         )}
         {tab === "FORM" && (
