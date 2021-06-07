@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { HamburgerIcon, NotificationIcon } from "./Icons";
 import Avatar from "../styles/Avatar";
 import Search from "./Search";
+import UploadVideo from "./UploadVideo";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -95,7 +96,9 @@ const Navbar = () => {
       </span>
       <Search />
       <ul>
-        <li>UploadVideo</li>
+        <li>
+          <UploadVideo />
+        </li>
         <li>NotificationIcon</li>
         <li>
           <Link to="/feed/my_videos">

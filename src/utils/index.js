@@ -71,7 +71,6 @@ export const upload = async (resourceType, file) => {
   const formData = new FormData();
   formData.append("upload_preset", "youtubeclone");
   formData.append("file", file);
-
   let toastId = null;
   const config = {
     onUploadProgress: (p) => {
@@ -87,7 +86,6 @@ export const upload = async (resourceType, file) => {
       }
     },
   };
-
   const { data } = await axios.post(
     `${process.env.REACT_APP_CLOUDINARY_ENDPOINT}/${resourceType}/upload`,
     formData,
