@@ -90,10 +90,11 @@ const Navbar = () => {
     <Wrapper>
       <div className="logo flex-row">
         <HamburgerIcon className="toggle-navhandler" />
+        <span>
+          <Link to="/">YouTube Clone</Link>
+        </span>
       </div>
-      <span>
-        <Link to="/">YouTube Clone</Link>
-      </span>
+
       <Search />
       <ul>
         <li>
