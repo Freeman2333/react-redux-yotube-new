@@ -11,6 +11,7 @@ import {
   VidIcon,
   LikeIcon,
 } from "./Icons";
+import { closeSidebar } from "../reducers/sidebar";
 
 const SidebarWrapper = styled.div`
   position: fixed;
@@ -70,7 +71,23 @@ const SidebarWrapper = styled.div`
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  return <div>Sidebar</div>;
+  const {sidebar: open} = useSelector(state=>state.sidebar)
+
+  const handleCloseSidebar= ()=>{
+    dispatch(closeSidebar)
+  }
+  return <SidebarWrapper open={open}>
+    <NavLink exact
+        to="/"
+        activeClassName="active"
+        onClick={handleCloseSidebar}
+        >
+      <div className="icon">
+        <HomeIcon />
+        <span>Home</span>
+      </div>
+    </NavLink> 
+  </SidebarWrapper>;
 };
 
 export default Sidebar;
