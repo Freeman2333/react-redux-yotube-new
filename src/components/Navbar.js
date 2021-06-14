@@ -100,7 +100,7 @@ const Navbar = () => {
         <li>
           <UploadVideo />
         </li>
-        <li>NotificationIcon</li>
+        <li><NotificationIcon /></li>
         <li>
           <Link to="/feed/my_videos">
             <Avatar className="pointer" src={user.avatar} alt="user-avatar" />

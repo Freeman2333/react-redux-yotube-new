@@ -20,6 +20,12 @@ const recommendationSlice = createSlice({
       state.videos = [action.payload, ...state.videos];
     },
   },
+  extraReducers: {
+    [getRecommendation.fulfilled]: (state,action)=>{
+      state.isFetching = false;
+      state.videos = action.payload;
+    }
+  }
 });
 
 export const { addToRecommendation } = recommendationSlice.actions;
