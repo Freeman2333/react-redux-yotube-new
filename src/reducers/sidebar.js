@@ -10,7 +10,6 @@ const sidebarSlice = createSlice({
             state.sidebar = true
         },
         closeSidebar(state,action){
-            alert('sdas')
             state.sidebar = false
         }
     }

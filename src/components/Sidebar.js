@@ -74,11 +74,12 @@ const Sidebar = () => {
   const {sidebar: open} = useSelector(state=>state.sidebar)
 
   const handleCloseSidebar= ()=>{
-    dispatch(closeSidebar)
+    dispatch(closeSidebar())
   }
   return <SidebarWrapper open={open}>
     <NavLink exact
         to="/"
+        exact
         activeClassName="active"
         onClick={handleCloseSidebar}
         >
