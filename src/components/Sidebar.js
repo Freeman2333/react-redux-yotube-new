@@ -71,24 +71,27 @@ const SidebarWrapper = styled.div`
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const {sidebar: open} = useSelector(state=>state.sidebar)
+  const { sidebar: open } = useSelector((state) => state.sidebar);
 
-  const handleCloseSidebar= ()=>{
-    dispatch(closeSidebar())
-  }
-  return <SidebarWrapper open={open}>
-    <NavLink exact
+  const handleCloseSidebar = () => {
+    dispatch(closeSidebar());
+  };
+  return (
+    <SidebarWrapper open={open}>
+      <NavLink
+        exact
         to="/"
         exact
         activeClassName="active"
         onClick={handleCloseSidebar}
-        >
-      <div className="icon">
-        <HomeIcon />
-        <span>Home</span>
-      </div>
-    </NavLink> 
-  </SidebarWrapper>;
+      >
+        <div className="icon">
+          <HomeIcon />
+          <span>Home</span>
+        </div>
+      </NavLink>
+    </SidebarWrapper>
+  );
 };
 
 export default Sidebar;
