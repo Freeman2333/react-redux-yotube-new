@@ -11,6 +11,7 @@ import {
   client,
   timeSince,
 } from "../utils";
+import Button from "../styles/Button";
 
 // reducers and others
 import {
@@ -18,6 +19,7 @@ import {
   dislike,
   cancelLike,
   cancelDislike,
+  subscribeFromVideo
 } from "../reducers/video";
 
 const Wrapper = styled.div`
@@ -142,6 +144,10 @@ const WatchVideo = () => {
 
       client(`${process.env.REACT_APP_BE}/videos/${videoId}/dislike`);
     }
+
+    const handleSubscribe= (channel)=>{
+      dispatch(subscribeFromVideo())
+    }
     
     useEffect(() => {
       dispatch(getVideo(videoId))
@@ -170,6 +176,26 @@ const WatchVideo = () => {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="channel-info-description">
+            <div className="channel-info-flex">
+              <div className="channel-info flex-row">
+                <img src={video.User?.avatar} alt="channel avatar" className="avatar md" />
+                <div className="channel-info-meta">
+                  <h4>
+                    <Link to={`/channel/${video.userId}`}>{video.User?.username}</Link>
+                  </h4>
+                  <span className="secondary small">
+                    {video.subscribersCount} subscribers
+                  </span>
+                </div>
+              </div>
+              {!video.isVideoMine && !video.isSubscribed && (
+              <Button onClick={() => handleSubscribe({ ...video.User })}>
+                Subscribe
+              </Button>
+            )}
             </div>
           </div>
         </Wrapper>

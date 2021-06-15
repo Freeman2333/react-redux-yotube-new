@@ -34,6 +34,12 @@ const videoSlice = createSlice({
                 likesCount: state.data.likesCount - 1,
             }
         },
+        subscribeFromVideo(state){
+            state.data = {
+                ...state.data,
+                isSubscribed: !state.data.isSubscribed,
+            }
+        },
         cancelDislike(state){
             state.data = {
                 ...state.data,
@@ -54,7 +60,8 @@ export const {
     like,
     dislike,
     cancelLike,
-    cancelDislike
+    cancelDislike,
+    subscribeFromVideo
   } = videoSlice.actions;
 
 export default videoSlice.reducer;
