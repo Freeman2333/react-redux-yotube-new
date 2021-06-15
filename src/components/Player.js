@@ -12,7 +12,7 @@ const Player = ({ previewUrl }) => {
     id: videoId,
     url: src,
     thumb: poster,
-  } = useSelector((state) => state.recommendation.videos.video.data);
+  } = useSelector((state) => state.video.data);
 
   useEffect(() => {
     const vjsPlayer = videojs(videoRef.current);
